@@ -106,14 +106,17 @@ namespace OceanShopping
 
             test_main.Style.Add("margin-top", "5%");
         }
-
-        protected void searchBar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void login_button_Click(object sender, EventArgs e)
         {
+            Session.Abandon();
+            if (Request.Cookies["OceanShoppingLogin"] != null)
+            {
+                HttpCookie cookie = Request.Cookies["OceanShoppingLogin"];
+                Response.Cookies.Remove("OceanShoppingLogin");
+                cookie.Expires = DateTime.Now.AddDays(-10);
+                cookie.Value = null;
+                Response.SetCookie(cookie);
+            }
             Response.Redirect("Login.aspx");
         }
 
@@ -208,6 +211,8 @@ namespace OceanShopping
             rpt_Items.DataSource = null;
             rpt_Items.DataSource = array;
             rpt_Items.DataBind();
+            rpt_Items.Visible = true;
+            test_main.Style.Add("margin-top", "5%");
         }
 
         protected void cart_Click(object sender, EventArgs e)

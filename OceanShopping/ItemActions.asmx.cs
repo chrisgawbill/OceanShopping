@@ -322,6 +322,8 @@ namespace OceanShopping
                 for(int i = 0; i < myData.Tables[0].Rows.Count; i++)
                 {
                     DataRow row = myData.Tables[0].Rows[i];
+                    if (row["buyerID"].ToString().Equals(""))
+                    {
                     int itemID = Int32.Parse(row["ItemID"].ToString());
                     int sellerID = Int32.Parse(row["sellerID"].ToString());
                     string name = row["itemName"].ToString();
@@ -340,6 +342,7 @@ namespace OceanShopping
                     tempItem.Price = price;
 
                     tempItemList.Add(tempItem);
+                }
                 }
                 return tempItemList;
             }

@@ -1,4 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Cart.ascx.cs" Inherits="OceanShopping.Cart" %>
+
+<div class="contentContainer" style="margin-left: 375px;">
+<div class="content" style="background-color: #0096C7; color: white; border-radius: 15px; padding: 10px 10px 10px 10px; margin-right: 375px;">
+
 <div>
     <h2>Cart</h2>
     <asp:Repeater ID="rpt_Items" runat="server">
@@ -21,7 +25,10 @@
         </ItemTemplate>
     </asp:Repeater>
     <div>
-        <asp:Button ID="checkout_btn" runat="server" Text="Checkout" OnClick="checkout_Click" />
-        <asp:Button ID="cart_back" runat="server" Text="Back" OnClick="cart_back_Click" />
+        <asp:Button ID="checkout_btn" runat="server" class="btn btn-light" Text="Checkout" OnClick="checkout_Click" />
+        <asp:Button ID="cart_back" runat="server" class="btn btn-light" Text="Back" OnClick="cart_back_Click" />
     </div>
 </div>
+
+    </div>
+    </div>

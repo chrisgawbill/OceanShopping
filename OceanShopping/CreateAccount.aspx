@@ -6,7 +6,7 @@
 <style>
     body {
         text-align: center;
-        font-family: 'Varela Round', sans-serif;
+        font-family: 'Manjari', sans-serif;
         background-color: cadetblue;
     }
 
@@ -21,13 +21,22 @@
 
     .content {
         text-align: left;
-        background-color: antiquewhite;
+        background-color: white;
         border-radius: 25px;
         margin-left: 175px;
         margin-right: 175px;
         padding-top: 20px;
         padding-bottom: 25px;
-        font-family: 'Varela Round', sans-serif;
+        font-family: 'Manjari', sans-serif;
+    }
+
+    hr{
+  width:50%;
+  margin: 0 auto;
+}
+
+    .btn btn-info{
+        color: white;
     }
 </style>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,12 +46,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&amp;display=swap" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manjari&display=swap" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css" />
 
@@ -53,7 +60,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 
 </head>
-<body>
+<body style="background-color: #0096C7">
     <form id="form1" runat="server">
 
         <br>
@@ -84,6 +91,7 @@
                         </div>
 
                     </div>
+                    <hr />
                     <h5>Enter billing address information.</h5>
                     <div class="row">
                         <div class="form-group col-md-4">
@@ -399,6 +407,7 @@
                         <asp:TextBox runat="server" class="form-control" ID="create_billing_zip" Placeholder="Billing Zip Code" />
                         <asp:RequiredFieldValidator runat="server" ID="create_req_billing_zip" ControlToValidate="create_billing_zip" ErrorMessage="Please enter your billing zip code" ForeColor="Red" />
                     </div>
+                    <hr />
                     <h5>Enter delivery address information.</h5>
                     <div class="row">
                         <div class="form-group col-md-4">
@@ -714,6 +723,7 @@
                         <asp:TextBox runat="server" class="form-control" ID="create_deliver_zip" Placeholder="Delivery Zip Code" />
                         <asp:RequiredFieldValidator runat="server" ID="create_req_deliver_zip" ControlToValidate="create_deliver_zip" ErrorMessage="Please enter your delivery zip code" ForeColor="Red" />
                     </div>
+                    <hr />
                     <h5>Security Questions</h5>
                     <div class="row">
                         <div class="form-group col-md-4">
@@ -760,6 +770,7 @@
                             <asp:RequiredFieldValidator runat="server" ID="create_req_securityThree" ControlToValidate="create_securityAnswer_three" ErrorMessage="Please enter an answer" ForeColor="Red" />
                         </div>
                     </div>
+                    <hr />
                     <h5>Payment Method</h5>
                     <div class="row">
                         <div class="form-group col-md-4">
@@ -771,10 +782,12 @@
                             <asp:TextBox runat="server" class="form-control" ID="create_payment_num" Placeholder="Payment Number" />
                             <asp:RequiredFieldValidator runat="server" ID="create_req_payment_num" ControlToValidate="create_payment_num" ErrorMessage="Please enter credit card number" ForeColor="Red" />
                         </div>
+                        <div class="row">
                         <div class="form-group col-md-4">
                             <asp:TextBox runat="server" class="form-control" ID="create_payment_cvv" Placeholder="Payment CVV" />
                             <asp:RequiredFieldValidator runat="server" ID="create_req_payment_cvv" ControlToValidate="create_payment_cvv" ErrorMessage="Please enter credit card cvv" ForeColor="Red" />
                         </div>
+                            </div>
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <asp:DropDownList ID="create_payment_month" runat="server" class="form-control">
@@ -810,9 +823,11 @@
                             </div>
                         </div>
                     </div>
+                    <hr />
+                    <br /><br />
                     <div>
-                        <asp:Button runat="server" ID="create_submit" class="btn btn-info" Text="Create Account" OnClick="create_submit_Click" />
-                        <asp:Button runat="server" ID="create_cancel" class="btn btn-info" Text="Cancel" CausesValidation="false" OnClick="create_cancel_Click" />
+                        <asp:Button runat="server" ID="create_submit" class="btn btn-info" Text="Create Account" style="color: white;" OnClick="create_submit_Click" />
+                        <asp:Button runat="server" ID="create_cancel" class="btn btn-info" Text="Cancel" style="color: white;" CausesValidation="false" OnClick="create_cancel_Click" />
                     </div>
                 </form>
             </div>

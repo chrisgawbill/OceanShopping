@@ -82,7 +82,7 @@ namespace OceanShopping
             {
                 login_forgot_password_div.Visible = true;
 
-                WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/SecurityQuestions?email=" + email);
+                WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/SecurityQuestions?email=" + email);
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);
@@ -123,7 +123,7 @@ namespace OceanShopping
             int index = Int32.Parse(Session["QuestionIndex"].ToString());
             if (index == 0)
             {
-                WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/SecurityQuestionOneCheck?email=" + email + "&answer=" + answer);
+                WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/SecurityQuestionOneCheck?email=" + email + "&answer=" + answer);
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);
@@ -143,7 +143,7 @@ namespace OceanShopping
             }
             else if (index == 1)
             {
-                WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/SecurityQuestionTwoCheck?email=" + email + "&answer=" + answer);
+                WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/SecurityQuestionTwoCheck?email=" + email + "&answer=" + answer);
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);
@@ -163,7 +163,7 @@ namespace OceanShopping
             }
             else
             {
-                WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/SecurityQuestionThreeCheck?email=" + email + "&answer=" + answer);
+                WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/SecurityQuestionThreeCheck?email=" + email + "&answer=" + answer);
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);

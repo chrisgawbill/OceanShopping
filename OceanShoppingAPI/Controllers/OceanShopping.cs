@@ -17,6 +17,11 @@ namespace OceanShoppingAPI.Controllers
     [Route("api/OceanShoppingAPI")]
     public class OceanShopping : Controller
     {
+        [HttpGet()]
+        public String start()
+        {
+            return "API was succesfully run";
+        }
         [HttpGet("GetUser")]
         public User getUser(string email, string password)
         {

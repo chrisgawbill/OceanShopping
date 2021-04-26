@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
-    <form id="form1" runat="server">
+      <form id="form1" runat="server">
         <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
             <div class="container">
                 <div class="card login-card" >
                     <div class="row no-gutters" >
                         <div class="col-md-5">
-                            <img src="https://laughingsquid.com/wp-content/uploads/2017/12/quadtopus.gif" alt="login" class="login-card-img">
+                            <img src="https://laughingsquid.com/wp-content/uploads/2017/12/quadtopus.gif" alt="login" class="login-card-img"/>
                         </div>
                         <div class="col-md-7" >
                             <div class="card-body">
@@ -31,9 +31,10 @@
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
                                     <asp:TextBox runat="server" ID="login_email" class="form-control" Placeholder="Email"></asp:TextBox>
-                                    <asp:TextBox runat="server" ID="login_password" class="form-control" type="password" Placeholder="Password"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="login_password" type="password" class="form-control" Placeholder="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ID="login_req_email" ControlToValidate="login_email" ErrorMessage="Please enter your email" ForeColor="Red" />
                                     <asp:RequiredFieldValidator runat="server" ID="login_req_password" ControlToValidate="login_password" ErrorMessage="Please enter your password" ForeColor="Red" />
+                                    
                                     <p>Remember Login: <asp:CheckBox runat="server" ID="login_remember" /></p>
                                     <asp:Button runat="server" ID="login_submit" Text="Login" class="btn btn-info" OnClick="login_submit_Click"/>
                                     <asp:Button runat="server" ID="login_forget_button" Text="Forgot Password" class="btn btn-info" OnClick="login_forgot_password_Click" CausesValidation="false"/>
@@ -50,16 +51,14 @@
                             </div>
                             <div>
                                     </div>
-
                                 <nav class="login-card-footer-nav">
                                     <a href="#!">Terms of use.</a>
                                     <a href="#!">Privacy policy</a>
                                 </nav>
-
                             </div>
                         </div>
-                    </div>
                 </div>
+            </div>
         </main>
     </form>
 
@@ -68,23 +67,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 <style>
     body {
   font-family: "Karla", sans-serif;
   min-height: 100vh; 
-  background-color: #64DFDF;
+  background-color: #0096C7;
     }
-
     #login_submit{
-
     }
-
 .brand-wrapper {
   margin-bottom: 19px; }
   .brand-wrapper .logo {
     height: 37px; }
-
 .login-card {
   border: 0;
   border-radius: 27.5px;
@@ -154,7 +148,5 @@
   .login-card-footer-nav a {
     font-size: 14px;
     color: #919aa3; }
-
 /*# sourceMappingURL=login.css.map */
-
 </style>

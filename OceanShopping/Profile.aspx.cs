@@ -49,6 +49,7 @@ namespace OceanShopping
             SellItem.Visible = true;
             profileContainer.Visible = false;
 
+
         }
 
         protected void profile_wishlist_Click(object sender, EventArgs e)
@@ -111,7 +112,6 @@ namespace OceanShopping
             ArrayList sellingItems = pxy.GetSellingItems(userID);
 
             rpt_items_other.DataSource = null;
-            rpt_items_other.DataSource = sellingItems;
             rpt_items_other.DataBind();
             rpt_items_other.Visible = true;
         }

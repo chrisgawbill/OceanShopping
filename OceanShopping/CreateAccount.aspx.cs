@@ -113,7 +113,7 @@ namespace OceanShopping
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 String jsonUser = js.Serialize(tempUser);
 
-                WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/AddUser");
+                WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/AddUser");
                 request.Method = "POST";
                 request.ContentLength = jsonUser.Length;
                 request.ContentType = "application/json";
@@ -162,7 +162,7 @@ namespace OceanShopping
         }
         public Boolean CheckEmail(string email)
         {
-            WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/CheckEmail?email=" + email);
+            WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/CheckEmail?email=" + email);
             WebResponse response = request.GetResponse();
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
@@ -181,7 +181,7 @@ namespace OceanShopping
         }
         public Boolean CheckPassword(string password)
         {
-            WebRequest request = WebRequest.Create("https://cis-iis2.temple.edu/Spring2021/CIS3342_tun05003/WebAPI/api/OceanShoppingAPI/CheckPassword?password=" + password);
+            WebRequest request = WebRequest.Create("https://localhost:44367/api/OceanShoppingAPI/CheckPassword?password=" + password);
             WebResponse response = request.GetResponse();
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
