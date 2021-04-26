@@ -17,6 +17,8 @@ namespace OceanShopping
         {
             if (!IsPostBack)
             {
+
+                showProfileDetails();
                 if (Session["UserID"] == null)
                 {
                     Response.Redirect("Login.aspx");
@@ -28,6 +30,13 @@ namespace OceanShopping
             Cart.Visible = false;
         }
 
+        public void showProfileDetails()
+        {
+            firstName.Text = Session["First Name"].ToString();
+            lastName.Text = Session["Last Name"].ToString();
+            email.Text = Session["Email"].ToString();
+            userID.Text = Session["UserID"].ToString();
+        }
         protected void profile_back_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
@@ -38,6 +47,8 @@ namespace OceanShopping
             profile_subhead.Text = "Sell Item";
             Cart.Visible = false;
             SellItem.Visible = true;
+            profileContainer.Visible = false;
+
         }
 
         protected void profile_wishlist_Click(object sender, EventArgs e)
@@ -46,6 +57,7 @@ namespace OceanShopping
             profile_subhead.Text = "Wishlist";
             SellItem.Visible = false;
             Cart.Visible = false;
+            profileContainer.Visible = false;
 
             ArrayList wishlist = (ArrayList)Session["Wishlist"];
             if (wishlist == null)
@@ -70,6 +82,8 @@ namespace OceanShopping
             rpt_items_wishlist.Visible = false;
             Cart.Visible = false;
             rpt_items_other.Visible = true;
+            profileContainer.Visible = false;
+
 
             int userID = Int32.Parse(Session["UserID"].ToString());
             ItemActions pxy = new ItemActions();
@@ -88,6 +102,8 @@ namespace OceanShopping
             SellItem.Visible = false;
             rpt_items_wishlist.Visible = false;
             rpt_items_other.Visible = true;
+            profileContainer.Visible = false;
+
 
 
             int userID = Int32.Parse(Session["UserID"].ToString());
@@ -140,6 +156,8 @@ namespace OceanShopping
             rpt_items_wishlist.Visible = false;
             Cart.Visible = true;
             Cart.Refresh();
+            profileContainer.Visible = false;
+
         }
         public void StoreWishlist(ArrayList wishlist)
         {
@@ -153,6 +171,15 @@ namespace OceanShopping
 
             ItemActions pxy = new ItemActions();
             pxy.StoreWishlist(userID, byteListArray);
+        }
+
+        protected void profile_information_Click(object sender, EventArgs e)
+        {
+            profileContainer.Visible = true;
+            SellItem.Visible = false;
+            rpt_items_other.Visible = false;
+            rpt_items_wishlist.Visible = false;
+            Cart.Visible = false;
         }
     }
 }

@@ -69,15 +69,6 @@ namespace OceanShopping
         protected global::System.Web.UI.WebControls.CheckBox login_remember;
 
         /// <summary>
-        /// login_create_account control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login_create_account;
-
-        /// <summary>
         /// login_submit control.
         /// </summary>
         /// <remarks>
@@ -94,6 +85,15 @@ namespace OceanShopping
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button login_forget_button;
+
+        /// <summary>
+        /// login_create_account control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button login_create_account;
 
         /// <summary>
         /// login_forgot_password_div control.

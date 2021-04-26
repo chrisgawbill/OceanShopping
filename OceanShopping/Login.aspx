@@ -14,28 +14,30 @@
     <form id="form1" runat="server">
         <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
             <div class="container">
-                <div class="card login-card">
-                    <div class="row no-gutters">
+                <div class="card login-card" >
+                    <div class="row no-gutters" >
                         <div class="col-md-5">
-                            <img src="https://images.theconversation.com/files/223729/original/file-20180619-126566-1jxjod2.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop" alt="login" class="login-card-img">
+                            <img src="https://laughingsquid.com/wp-content/uploads/2017/12/quadtopus.gif" alt="login" class="login-card-img">
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-7" >
                             <div class="card-body">
                                 <div class="brand-wrapper">
                                     <!--<img src="assets/images/.svg" alt="logo" class="logo">-->
                                 </div>
 
+                                <h2>Welcome to the Ocean</h2>
+
                                 <!--email -->
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
                                     <asp:TextBox runat="server" ID="login_email" class="form-control" Placeholder="Email"></asp:TextBox>
-                                    <asp:TextBox runat="server" ID="login_password" class="form-control" Placeholder="Password"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="login_password" class="form-control" type="password" Placeholder="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ID="login_req_email" ControlToValidate="login_email" ErrorMessage="Please enter your email" ForeColor="Red" />
                                     <asp:RequiredFieldValidator runat="server" ID="login_req_password" ControlToValidate="login_password" ErrorMessage="Please enter your password" ForeColor="Red" />
                                     <p>Remember Login: <asp:CheckBox runat="server" ID="login_remember" /></p>
-                                    <asp:Button runat="server" ID="login_create_account" Text="Create Account" class="btn btn-light" OnClick="login_create_account_Click" CausesValidation="false"/>
-                                    <asp:Button runat="server" ID="login_submit" Text="Login" class="btn btn-light" OnClick="login_submit_Click"/>
-                                    <asp:Button runat="server" ID="login_forget_button" Text="Forgot Password" class="btn btn-light" OnClick="login_forgot_password_Click" CausesValidation="false"/>
+                                    <asp:Button runat="server" ID="login_submit" Text="Login" class="btn btn-info" OnClick="login_submit_Click"/>
+                                    <asp:Button runat="server" ID="login_forget_button" Text="Forgot Password" class="btn btn-info" OnClick="login_forgot_password_Click" CausesValidation="false"/>
+                                    <asp:Button runat="server" ID="login_create_account" Text="Create Account" class="btn btn-info" OnClick="login_create_account_Click" CausesValidation="false"/>
                                 </div>
 
 
@@ -58,7 +60,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
     </form>
 
@@ -71,7 +72,9 @@
 <style>
     body {
   font-family: "Karla", sans-serif;
-  min-height: 100vh; }
+  min-height: 100vh; 
+  background-color: #64DFDF;
+    }
 
     #login_submit{
 

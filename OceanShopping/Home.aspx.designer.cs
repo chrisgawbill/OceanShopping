@@ -33,15 +33,6 @@ namespace OceanShopping
         protected global::System.Web.UI.WebControls.Button profile_button;
 
         /// <summary>
-        /// login_button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login_button;
-
-        /// <summary>
         /// sell_item control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,24 @@ namespace OceanShopping
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button home_cart;
+
+        /// <summary>
+        /// login_button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button login_button;
+
+        /// <summary>
+        /// UserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UserName;
 
         /// <summary>
         /// test_main control.

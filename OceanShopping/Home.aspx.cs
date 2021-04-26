@@ -22,7 +22,8 @@ namespace OceanShopping
         {
             if (!IsPostBack)
             {
-                if(Session["UserID"] == null)
+                showAccountDetails();
+                if (Session["UserID"] == null)
                 {
                     Response.Redirect("Login.aspx");
                 }
@@ -31,6 +32,11 @@ namespace OceanShopping
             test_main.Visible = true;
             SellItem.Visible = false;
             Cart.Visible = false;
+        }
+
+        public void showAccountDetails()
+        {
+            UserName.Text = Session["First Name"].ToString();
         }
          
         protected void profile_button_Click(object sender, EventArgs e)
@@ -212,5 +218,6 @@ namespace OceanShopping
             Cart.Visible = true;
             Cart.Refresh();
         }
+
     }
 }
