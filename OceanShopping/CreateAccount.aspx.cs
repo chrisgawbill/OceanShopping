@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,9 +18,6 @@ namespace OceanShopping
 {
     public partial class CreateAccount : System.Web.UI.Page
     {
-        private Byte[] key = { 250, 101, 18, 76, 45, 135, 207, 118, 4, 171, 3, 168, 202, 241, 37, 199 };
-
-        private Byte[] vector = { 146, 64, 191, 111, 23, 3, 113, 119, 231, 121, 252, 112, 79, 32, 114, 156 };
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -101,11 +99,16 @@ namespace OceanShopping
                 tempUser.SecurityAnswerThree = securityAnswerThree;
 
                 CreditCard tempCredit = new CreditCard();
-                tempCredit.CreditName = EncryptField(create_payment_name.Text);
-                tempCredit.CreditNum = EncryptField(create_payment_num.Text);
-                tempCredit.Cvv = EncryptField(create_payment_cvv.Text);
+                RijndaelManaged myRijndael = new RijndaelManaged();
+                myRijndael.GenerateKey();
+                myRijndael.GenerateIV();
+                tempUser.Key = myRijndael.Key;
+                tempUser.Vector = myRijndael.IV;
+                tempCredit.CreditName = EncryptField(create_payment_name.Text, myRijndael.Key, myRijndael.IV);
+                tempCredit.CreditNum = EncryptField(create_payment_num.Text, myRijndael.Key, myRijndael.IV);
+                tempCredit.Cvv = EncryptField(create_payment_cvv.Text, myRijndael.Key, myRijndael.IV);
                 string expirationDate = create_payment_month.SelectedValue + "/" + create_payment_year.SelectedValue;
-                tempCredit.ExpirationDate = EncryptField(expirationDate);
+                tempCredit.ExpirationDate = EncryptField(expirationDate, myRijndael.Key, myRijndael.IV);
 
                 Byte[] byteCreditCard = SerializeObject(tempCredit);
                 tempUser.CreditCard = byteCreditCard;
@@ -221,15 +224,15 @@ namespace OceanShopping
                 create_deliver_state.Visible = false;
             }
         }
-        public Byte[] EncryptField(string test)
+        public Byte[] EncryptField(string test, byte[] key, byte[] vector)
         {
+            RijndaelManaged myRijndael = new RijndaelManaged();
             UTF8Encoding encoder = new UTF8Encoding();
             Byte[] txtBytes;
 
             txtBytes = encoder.GetBytes(test);
-            RijndaelManaged rmEncryption = new RijndaelManaged();
             MemoryStream myMemoryStream = new MemoryStream();
-            CryptoStream myEncryptionStream = new CryptoStream(myMemoryStream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
+            CryptoStream myEncryptionStream = new CryptoStream(myMemoryStream, myRijndael.CreateEncryptor(key, vector), CryptoStreamMode.Write);
 
             myEncryptionStream.Write(txtBytes, 0, txtBytes.Length);
             myEncryptionStream.FlushFinalBlock();

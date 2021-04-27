@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OceanShoppingLibrary\OceanShoppingLibrary.csproj" />
-    <ProjectReference Include="..\OceanShopping\OceanShopping.csproj" />
   </ItemGroup>
 
 </Project>

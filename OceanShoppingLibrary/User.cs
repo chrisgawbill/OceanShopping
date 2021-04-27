@@ -25,12 +25,15 @@ namespace OceanShoppingLibrary
         private ArrayList wishlist;
         private ArrayList cart;
         private Byte[] creditCard;
+        private Byte[] key;
+        private Byte[] vector;
 
         public User() { }
 
         public User(int userID, string firstName, string lastName, string email, string password, string billingAddress, string deliverAddress, 
             string securityQuestionOne, string securityAnswerOne, string securityQuestionTwo, string securityAnswerTwo, 
-            string securityQuestionThree, string securityAnswerThree, ArrayList wishlist, ArrayList cart, Byte[] creditCard)
+            string securityQuestionThree, string securityAnswerThree, ArrayList wishlist, ArrayList cart, Byte[] creditCard,
+            Byte[] key, Byte[] vector)
         {
             this.userID = userID;
             this.firstName = firstName;
@@ -48,6 +51,8 @@ namespace OceanShoppingLibrary
             this.wishlist = wishlist;
             this.cart = cart;
             this.creditCard = creditCard;
+            this.key = key;
+            this.vector = vector;
         }
         public int UserID
         {
@@ -223,6 +228,28 @@ namespace OceanShoppingLibrary
             set
             {
                 creditCard = value;
+            }
+        }
+        public Byte[] Key
+        {
+            get
+            {
+                return key;
+            }
+            set
+            {
+                key = value;
+            }
+        }
+        public Byte[] Vector
+        {
+            get
+            {
+                return vector;
+            }
+            set
+            {
+                vector = value;
             }
         }
     }

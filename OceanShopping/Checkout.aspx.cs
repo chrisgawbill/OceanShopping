@@ -15,9 +15,6 @@ namespace OceanShopping
 {
     public partial class Checkout : System.Web.UI.Page
     {
-        private Byte[] key = { 250, 101, 18, 76, 45, 135, 207, 118, 4, 171, 3, 168, 202, 241, 37, 199 };
-
-        private Byte[] vector = { 146, 64, 191, 111, 23, 3, 113, 119, 231, 121, 252, 112, 79, 32, 114, 156 };
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -151,26 +148,30 @@ namespace OceanShopping
             int userID = Int32.Parse(Session["UserID"].ToString());
             ItemActions pxy = new ItemActions();
             User tempUser = pxy.GetCreditCard(userID);
+            User keyUser = pxy.GetKeyVector(userID);
+            Byte[] key = keyUser.Key;
+            Byte[] vector = keyUser.Vector;
 
             CreditCard tempCredit = DeserializeObject(tempUser.CreditCard);
 
-            checkout_credit_name.Text =  DecryptField(tempCredit.CreditName);
-            checkout_credit_num.Text = DecryptField(tempCredit.CreditNum);
-            checkout_credit_cvv.Text = DecryptField(tempCredit.Cvv);
-            string expirationDate = DecryptField(tempCredit.ExpirationDate);
+            checkout_credit_name.Text =  DecryptField(tempCredit.CreditName, key, vector);
+            checkout_credit_num.Text = DecryptField(tempCredit.CreditNum, key, vector);
+            checkout_credit_cvv.Text = DecryptField(tempCredit.Cvv, key, vector);
+            string expirationDate = DecryptField(tempCredit.ExpirationDate, key, vector);
             String[] expirationDateArray = expirationDate.Split('/');
 
             checkout_payment_month.SelectedValue = expirationDateArray[0];
             checkout_payment_year.SelectedValue = expirationDateArray[1];
         }
-        public String DecryptField(byte[] test)
+        public String DecryptField(byte[] test, byte[] key, byte[] vector)
         {
+            RijndaelManaged myRijndael = new RijndaelManaged();
+
             Byte[] txtBytes;
 
             UTF8Encoding encoder = new UTF8Encoding();
-            RijndaelManaged rmEncryption = new RijndaelManaged();
             MemoryStream myMemoryStream = new MemoryStream();
-            CryptoStream myDecryptionStream = new CryptoStream(myMemoryStream, rmEncryption.CreateDecryptor(key, vector), CryptoStreamMode.Write);
+            CryptoStream myDecryptionStream = new CryptoStream(myMemoryStream, myRijndael.CreateDecryptor(key, vector), CryptoStreamMode.Write);
 
             myDecryptionStream.Write(test, 0, test.Length);
             myDecryptionStream.FlushFinalBlock();

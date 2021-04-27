@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
                                     <asp:TextBox runat="server" ID="login_email" class="form-control" Placeholder="Email"></asp:TextBox>
-                                    <asp:TextBox runat="server" ID="login_password" type="password" class="form-control" Placeholder="Password"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="login_password" class="form-control" type="password" Placeholder="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ID="login_req_email" ControlToValidate="login_email" ErrorMessage="Please enter your email" ForeColor="Red" />
                                     <asp:RequiredFieldValidator runat="server" ID="login_req_password" ControlToValidate="login_password" ErrorMessage="Please enter your password" ForeColor="Red" />
                                     

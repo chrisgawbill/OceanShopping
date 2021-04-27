@@ -42,18 +42,20 @@
             <br />
         </div>
 
+        <div class="slide-right">
         <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span><a class="introduction" style="color: black;">Welcome back,   </a>
         <asp:Label ID="UserName" class="navbar-brand" Style="color: black; font-size: 32px;" required="required" runat="server" />
+        </div>
 
         <div class="main" runat="server" id="test_main">
             <div>
                 <div>
-                    <h2 style="color: white;">Categories</h2>
-                    <asp:Button ID="category_technology" class="btn btn-light" runat="server" OnClick="category_technology_Click" Text="Technology" />
-                    <asp:Button ID="category_fashion" class="btn btn-light" runat="server" OnClick="category_fashion_Click" Text="Fashion" />
-                    <asp:Button ID="category_gardening" class="btn btn-light" runat="server" OnClick="category_gardening_Click" Text="Gardening" />
-                    <asp:Button ID="category_householdItems" class="btn btn-light" runat="server" OnClick="category_householdItems_Click" Text="Household Items" />
-                    <asp:Button ID="category_music" class="btn btn-light" runat="server" OnClick="category_music_Click" Text="Music" />
+                    <h2 style="color: black;">Categories</h2>
+                    <asp:Button ID="category_technology" class="btn btn-info" runat="server" OnClick="category_technology_Click" Text="Technology" />
+                    <asp:Button ID="category_fashion" class="btn btn-info" runat="server" OnClick="category_fashion_Click" Text="Fashion" />
+                    <asp:Button ID="category_gardening" class="btn btn-info" runat="server" OnClick="category_gardening_Click" Text="Gardening" />
+                    <asp:Button ID="category_householdItems" class="btn btn-info" runat="server" OnClick="category_householdItems_Click" Text="Household Items" />
+                    <asp:Button ID="category_music" class="btn btn-info" runat="server" OnClick="category_music_Click" Text="Music" />
                 </div>
             </div>
             <br />
@@ -62,7 +64,7 @@
             <div class="searchItm">
                 <div class="input-group">
                     <div class="input-group-append">
-                        <asp:TextBox ID="searchTxt" class="form-control" placeholder="Explore our endless products!" runat="server" />
+                        <asp:TextBox ID="searchTxt" class="form-control" placeholder="Explore our endless products!" runat="server" style="width: 575px;"/>
                         <div class="input-group-append">
                            <asp:Button ID="btnSearch" type="button" class="btn btn-dark" Text="Search" runat="server" OnClick="btnSearch_Click" />
                         </div>
@@ -121,8 +123,34 @@
     body {
         font-family: 'Manjari', sans-serif;
         margin-left: 10px;
-  background-color: white;
+          background-color: #64DFDF;
     }
+
+    .slide-right {
+  width: 100%;
+  overflow: hidden;
+  max-width: 500px
+}
+
+.slide-right span {
+  animation: 2s slide-right;
+  animation-delay: 0s;
+}
+
+.slide-right label {
+  animation: 2s slide-right;
+  animation-delay: 0s;
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: -500px;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
 
     .introduction {
         font-size: 32px;
@@ -139,18 +167,14 @@
         border-radius: 10px;
     }
 
-    #searchTxt{
-        width: 575px;
-    }
-
-    .main {
-        width: 50%;
-        margin: 50px auto;
-        margin-top: 17%;
-        background-color: #0096C7;
-        padding: 25px 25px 25px 25px;
-        border-radius: 15px;
-    }
+        .main {
+            width: 50%;
+            margin: 50px auto;
+            margin-top:17%;
+            background-color: white;
+            padding: 25px 25px 25px 25px;
+            border-radius: 15px;
+        }
 
     .has-search .form-control {
         padding-left: 2.375rem;
@@ -168,27 +192,27 @@
         color: #aaa;
     }
 
-    .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #0096C7;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
+        .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #64DFDF;
+  display: block;
+  transition: 0.3s;
+}
 
             .sidenav a:hover {
                 color: #f1f1f1;
@@ -203,54 +227,54 @@
         }
 
     #profile_button {
-        background-color: #0096C7;
-        color: white;
+        background-color: white;
+        color: black;
         border-style: none;
         transition-duration: 0.4s;
     }
 
     #login_button {
-        background-color: #0096C7;
-        color: white;
+        background-color: white;
+        color: black;
         border-style: none;
         transition-duration: 0.4s;
     }
 
     #sell_item {
-        background-color: #0096C7;
-        color: white;
+        background-color: white;
+        color: black;
         border-style: none;
         transition-duration: 0.4s;
     }
 
     #home_cart {
-        background-color: #0096C7;
-        color: white;
+        background-color: white;
+        color: black;
         border-style: none;
         transition-duration: 0.4s;
     }
 
     #profile_button:hover {
-        background-color:  white;
+        background-color: #64DFDF;
         color: black;
-        border-style: none;
+                border-style: none;
     }
 
     #login_button:hover {
-        background-color:  white;
-        color:  black;
-        border-style: none;
+        background-color: #64DFDF;
+        color: black;
+                border-style: none;
     }
 
     #sell_item:hover {
-        background-color:  white;
-        color:  black;
-        border-style: none;
+        background-color: #64DFDF;
+        color: black;
+                border-style: none;
     }
 
     #home_cart:hover {
-        background-color:  white;
-        color:  black;
+        background-color: #64DFDF;
+        color: black;
         border-style: none;
     }
 

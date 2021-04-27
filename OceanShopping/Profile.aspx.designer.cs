@@ -33,6 +33,15 @@ namespace OceanShopping
         protected global::System.Web.UI.WebControls.Button profile_back;
 
         /// <summary>
+        /// profile_information control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button profile_information;
+
+        /// <summary>
         /// profile_wishlist control.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace OceanShopping
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button profile_cart;
-
-        /// <summary>
-        /// profile_information control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button profile_information;
 
         /// <summary>
         /// profileContainer control.

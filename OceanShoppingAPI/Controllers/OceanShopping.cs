@@ -109,6 +109,8 @@ namespace OceanShoppingAPI.Controllers
             objCommand.Parameters.AddWithValue("@securityQuestionThree", tempUser.SecurityQuestionThree);
             objCommand.Parameters.AddWithValue("@securityAnswerThree", tempUser.SecurityAnswerThree);
             objCommand.Parameters.AddWithValue("@creditcard", tempUser.CreditCard);
+            objCommand.Parameters.AddWithValue("@key", tempUser.Key);
+            objCommand.Parameters.AddWithValue("@vector", tempUser.Vector);
 
             DBConnect objDB = new DBConnect();
             int result = objDB.DoUpdateUsingCmdObj(objCommand);

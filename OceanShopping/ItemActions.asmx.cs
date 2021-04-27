@@ -551,5 +551,30 @@ namespace OceanShopping
             }
             return null;
         }
+        [WebMethod]
+        public User GetKeyVector(int userID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            objCommand.CommandText = "OceanGetUser";
+            objCommand.Parameters.AddWithValue("@userID", userID);
+            DBConnect db = new DBConnect();
+            DataSet myData = db.GetDataSetUsingCmdObj(objCommand);
+
+            if (myData.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = myData.Tables[0].Rows[0];
+
+                byte[] key = (byte[])row["key"];
+                byte[] vector = (byte[])row["vector"];
+
+                User tempUser = new User();
+                tempUser.Key = key;
+                tempUser.Vector = vector;
+
+                return tempUser;
+            }
+            return null;
+        }
     }
 }
