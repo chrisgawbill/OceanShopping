@@ -48,7 +48,7 @@ namespace OceanShopping
             Cart.Visible = false;
             SellItem.Visible = true;
             profileContainer.Visible = false;
-
+            rpt_items_other.Visible = false;
 
         }
 

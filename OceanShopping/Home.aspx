@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="OceanShopping.Home" %>
 
 <%@ Register Src="~/SellItem.ascx" TagPrefix="uc1" TagName="SellItem" %>
-<%@ Register Src="~/Cart.ascx" TagPrefix="uc2" TagName="Cart" %>
+<%@ Register Src="~/Cart.ascx" TagPrefix="uc1" TagName="Cart" %>
 
 
 
@@ -43,19 +43,19 @@
         </div>
 
         <div class="slide-right">
-        <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span><a class="introduction" style="color: black;">Welcome back,   </a>
-        <asp:Label ID="UserName" class="navbar-brand" Style="color: black; font-size: 32px;" required="required" runat="server" />
+        <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span><a class="introduction" style="color: white;">Welcome back,   </a>
+        <asp:Label ID="UserName" class="navbar-brand" Style="color: white; font-size: 32px;" required="required" runat="server" />
         </div>
 
         <div class="main" runat="server" id="test_main">
             <div>
                 <div>
                     <h2 style="color: black;">Categories</h2>
-                    <asp:Button ID="category_technology" class="btn btn-info" runat="server" OnClick="category_technology_Click" Text="Technology" />
-                    <asp:Button ID="category_fashion" class="btn btn-info" runat="server" OnClick="category_fashion_Click" Text="Fashion" />
-                    <asp:Button ID="category_gardening" class="btn btn-info" runat="server" OnClick="category_gardening_Click" Text="Gardening" />
+                    <asp:Button ID="category_technology" class="btn btn-dark" runat="server" OnClick="category_technology_Click" Text="Technology" />
+                    <asp:Button ID="category_fashion" class="btn btn-warning" runat="server" OnClick="category_fashion_Click" Text="Fashion" />
+                    <asp:Button ID="category_gardening" class="btn btn-success" runat="server" OnClick="category_gardening_Click" Text="Gardening" />
                     <asp:Button ID="category_householdItems" class="btn btn-info" runat="server" OnClick="category_householdItems_Click" Text="Household Items" />
-                    <asp:Button ID="category_music" class="btn btn-info" runat="server" OnClick="category_music_Click" Text="Music" />
+                    <asp:Button ID="category_music" class="btn btn-danger" runat="server" OnClick="category_music_Click" Text="Music" />
                 </div>
             </div>
             <br />
@@ -66,7 +66,7 @@
                     <div class="input-group-append">
                         <asp:TextBox ID="searchTxt" class="form-control" placeholder="Explore our endless products!" runat="server" style="width: 575px;"/>
                         <div class="input-group-append">
-                           <asp:Button ID="btnSearch" type="button" class="btn btn-dark" Text="Search" runat="server" OnClick="btnSearch_Click" />
+                           <asp:Button ID="btnSearch" type="button" class="btn btn-secondary" Text="Search" runat="server" OnClick="btnSearch_Click" />
                         </div>
         </div>
         </div>
@@ -77,26 +77,31 @@
 
         <br />
         <uc1:SellItem runat="server" ID="SellItem" />
-        <uc2:Cart runat="server" ID="Cart" />
+        <uc1:Cart runat="server" ID="Cart" />
         <asp:Repeater ID="rpt_Items" runat="server">
             <ItemTemplate>
-                <div class="itemDiv">
+                <div class="itemDiv2">
                     <asp:Image ID="product_image" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Picture") %>' Height="150px" Width="100%" />
-                    <asp:Label ID="product_name" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Name") %>'></asp:Label>
+                    <hr />
+                    <strong><asp:Label ID="product_name" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Name") %>'></asp:Label></strong>
+                    <hr />
                     <asp:Label ID="product_price" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Price", "{0:c}") %>'></asp:Label>
+                    <hr />
                     <p>
                         Description:
                                
                         <asp:Label ID="Label2" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Description") %>'></asp:Label>
+                        <hr />
                     </p>
                     <p>
                         ProductID:
                    
                         <asp:Label ID="product_id" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ItemID") %>'></asp:Label>
+                        <hr />
                     </p>
                     <div>
-                        <asp:Button ID="product_wishlist" runat="server" Text="Wishlist" OnClick="product_wishlist_Click" />
-                        <asp:Button ID="product_cart" runat="server" Text="Cart" OnClick="product_cart_Click" />
+                        <asp:Button ID="product_wishlist" runat="server" class="btn btn-info" Text="Wishlist" OnClick="product_wishlist_Click" />
+                        <asp:Button ID="product_cart" runat="server"   class="btn btn-info" Text="Cart" OnClick="product_cart_Click" />
                     </div>
                 </div>
             </ItemTemplate>
@@ -123,7 +128,7 @@
     body {
         font-family: 'Manjari', sans-serif;
         margin-left: 10px;
-          background-color: #64DFDF;
+          background-color: #56CFE1;
     }
 
     .slide-right {
@@ -158,13 +163,21 @@
         text-decoration: none;
     }
 
-    .itemDiv {
+    .itemDiv2 {
+        text-align: center;
         height: 25%;
-        width: 10%;
+        width: 20%;
+        background-color: white;
         float: left;
         margin-top: 2%;
         border: solid;
         border-radius: 10px;
+        padding-bottom: 5px;
+    }
+
+    .itemDiv2 img{
+        border-style: solid;
+        border-color: black;
     }
 
         .main {
@@ -276,15 +289,5 @@
         background-color: #64DFDF;
         color: black;
         border-style: none;
-    }
-
-    @media screen and (max-height: 450px) {
-        .sidenav {
-            padding-top: 15px;
-        }
-
-            .sidenav a {
-                font-size: 18px;
-            }
     }
 </style>

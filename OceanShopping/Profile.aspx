@@ -26,12 +26,12 @@
         <br />
         <br />
         <asp:Button runat="server" ID="profile_back" class="btn btn-light" Text="Homepage" OnClick="profile_back_Click" CausesValidation="false"/><br /><br />
-        <asp:Button runat="server" ID="profile_information" class="btn btn-light" Text="Profile Information" OnClick="profile_information_Click" CausesValidation="false"/><br /><br />
         <asp:Button runat="server" ID="profile_wishlist" class="btn btn-light" Text="Wishlist" OnClick="profile_wishlist_Click" CausesValidation="false"/><br /><br />
         <asp:Button runat="server" ID="profile_buying" class="btn btn-light" Text="Buying" OnClick="profile_buying_Click" CausesValidation="false"/><br /><br />
         <asp:Button runat="server" ID="profiel_selling" class="btn btn-light" Text="Selling" OnClick="profile_selling_Click" CausesValidation="false" /><br /><br />
         <asp:Button runat="server" ID="profile_sell_item" class="btn btn-light" Text="Sell Item" OnClick="profile_sell_item_Click"/><br /><br />
         <asp:Button runat="server" ID="profile_cart" class="btn btn-light" Text="Cart" OnClick="profile_cart_Click" CausesValidation="false" /><br /><br />
+        <asp:Button runat="server" ID="profile_information" class="btn btn-light" Text="Profile Information" OnClick="profile_information_Click" CausesValidation="false"/><br /><br />
     </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><a class="categories" href="Home.aspx" style="color: white; text-decoration: none;">Ocean</a>
 
@@ -170,7 +170,7 @@
         body{
          font-family: 'Manjari', sans-serif;
                  margin-left: 10px;
-        background-color: #64DFDF;
+        background-color: #56CFE1;
         }
 
     #profile-head {

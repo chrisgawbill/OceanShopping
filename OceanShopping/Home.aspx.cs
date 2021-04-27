@@ -20,8 +20,11 @@ namespace OceanShopping
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            test_main.Visible = true;
+
             if (!IsPostBack)
-            {
+            {               
+
                 showAccountDetails();
                 if (Session["UserID"] == null)
                 {
@@ -48,6 +51,11 @@ namespace OceanShopping
         {
             Cart.Visible = false;
             SellItem.Visible = true;
+            test_main.Visible = false;
+            rpt_Items.Visible = false;
+
+            test_main.Style.Add("margin-top", "5%");
+
         }
 
         protected void category_technology_Click(object sender, EventArgs e)

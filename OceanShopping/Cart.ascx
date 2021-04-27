@@ -10,18 +10,24 @@
     <asp:Repeater ID="rpt_Items" runat="server">
         <ItemTemplate>
             <div class="itemDiv">
-                <asp:Image ID="product_image" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Picture") %>' Height="150px" Width="100%" />
-                <asp:Label ID="product_name" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Name") %>'></asp:Label>
+                <div class="picture">
+                <asp:Image ID="product_image" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Picture") %>' Height="100%" Width="100%" /><hr />
+                    </div>
+               <strong> <asp:Label ID="product_name" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Name") %>'></asp:Label> </strong>
+                <hr />
                 <p>
                     Price: 
                     <asp:Label ID="product_price" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Price", "{0:c}") %>'></asp:Label>
+                    <hr />
                 </p>
                 <p>
                     ProductID:
                     <asp:Label ID="product_id" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ItemID") %>'></asp:Label>
+                    <hr />
                 </p>
                 <div>
-                    <asp:Button ID="product_delete" runat="server" class="btn btn-light" Text="Delete" OnClick="product_delete_Click" />
+                    <asp:Button ID="product_delete" runat="server" class="btn btn-danger" Text="Delete" OnClick="product_delete_Click" />
+                    <hr />
                 </div>
             </div>
             <br />
@@ -29,27 +35,31 @@
     </asp:Repeater>
 
             <div class="buttons">
-        <asp:Button ID="checkout_btn" runat="server" class="btn btn-light" Text="Checkout" OnClick="checkout_Click" />
-        <asp:Button ID="cart_back" runat="server" class="btn btn-light" Text="Back" OnClick="cart_back_Click" />
+        <asp:Button ID="checkout_btn" runat="server" class="btn btn-info" Text="Checkout" OnClick="checkout_Click" />
+        <asp:Button ID="cart_back" runat="server" class="btn btn-info" Text="Back" OnClick="cart_back_Click" />
     </div>
 
     </div>
     </div>
 
 <style>
-    .itemDiv{
-       padding-right: 750px;
-       padding-bottom: 50px;
-       border-style: none;
-
+    .itemDiv {
+        width: 75%;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 2%;
+        margin-left: 10%;
     }
 
-    .itemDiv img{
-        float: right;
-        padding-bottom: 50px 50px 50px 50px;
+    .info {
+        width: 80%;
+        float: left;
     }
 
-    .buttons{
+    .clear {
+        clear: both;
+    }
+        .buttons{
         padding-top:10px;
     }
 </style>

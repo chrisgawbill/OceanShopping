@@ -96,15 +96,6 @@ namespace OceanShopping
         protected global::System.Web.UI.WebControls.RequiredFieldValidator sell_req_itemPrice;
 
         /// <summary>
-        /// sell_itemCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sell_itemCancel;
-
-        /// <summary>
         /// sell_itemSubmit control.
         /// </summary>
         /// <remarks>
@@ -112,5 +103,14 @@ namespace OceanShopping
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button sell_itemSubmit;
+
+        /// <summary>
+        /// sell_itemCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button sell_itemCancel;
     }
 }

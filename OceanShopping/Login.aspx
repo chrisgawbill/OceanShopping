@@ -71,7 +71,7 @@
     body {
   font-family: "Karla", sans-serif;
   min-height: 100vh; 
-  background-color: #0096C7;
+  background-color: #56CFE1;
     }
     #login_submit{
     }

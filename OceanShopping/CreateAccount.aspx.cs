@@ -138,7 +138,7 @@ namespace OceanShopping
 
                 if(result != 1)
                 {
-                    Response.Write("An Error ocured when creating your account");
+                    Response.Write("<script>alert('An Error ocured when creating your account')</script>");
                 }
                 Response.Redirect("Login.aspx");
 
@@ -154,12 +154,12 @@ namespace OceanShopping
                 }
                 else
                 {
-                    Response.Write("Password is already taken");
+                    Response.Write("<script>alert('Password is already taken')</script>");
                 }
             }
             else
             {
-                Response.Write("Email is already taken");
+                Response.Write("<script>alert('Email is already taken')</script>");
             }
             return false;
         }

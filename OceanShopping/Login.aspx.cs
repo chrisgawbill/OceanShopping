@@ -17,9 +17,7 @@ namespace OceanShopping
 {
     public partial class Login : System.Web.UI.Page
     {
-        private Byte[] key = { 250, 101, 18, 76, 45, 135, 207, 118, 4, 171, 3, 168, 202, 241, 37, 199 };
-
-        private Byte[] vector = { 146, 64, 191, 111, 23, 3, 113, 119, 231, 121, 252, 112, 79, 32, 114, 156 };
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -66,7 +64,7 @@ namespace OceanShopping
             }
             else
             {
-                Response.Write("Invalid Login");
+                Response.Write("<script>alert('Invalid login. Please double check your credentials.')</script>");
             }
         }
 
@@ -105,7 +103,7 @@ namespace OceanShopping
             }
             else
             {
-                Response.Write("Type in your email before clicking 'Forgot Password'");
+                Response.Write("<script>alert('Type in your email before clicking 'Forgot Password'')</script>");
             }
 
         }
@@ -134,11 +132,11 @@ namespace OceanShopping
                 if (data != null)
                 {
                     string password = data;
-                    Response.Write("Password: " + password);
+                    Response.Write("<script>alert('Password: '" + password + ")</script>");
                 }
                 else
                 {
-                    Response.Write("Wrong answer");
+                    Response.Write("<script>alert('Wrong answer')</script>");
                 }
             }
             else if (index == 1)
@@ -154,11 +152,11 @@ namespace OceanShopping
                 if (data != null)
                 {
                     string password = data;
-                    Response.Write("Password: " + password);
+                    Response.Write("<script>alert('Password: '" + password + ")</script>");
                 }
                 else
                 {
-                    Response.Write("Wrong answer");
+                    Response.Write("<script>alert('Wrong answer')</script>");
                 }
             }
             else
@@ -174,11 +172,11 @@ namespace OceanShopping
                 if (data != null)
                 {
                     string password = data;
-                    Response.Write("Password: " + password);
+                    Response.Write("<script>alert('Password: '" + password + ")</script>");
                 }
                 else
                 {
-                    Response.Write("Wrong answer");
+                    Response.Write("<script>alert('Wrong answer')</script>");
                 }
             }
         }
